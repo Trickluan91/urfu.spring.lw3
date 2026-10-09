@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring.lw2
+server:
+  port: 8082
+
