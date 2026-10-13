@@ -30,8 +30,23 @@ public class Request {
     private int communicationId;
 
     private String source;
-    private String systemName;
+    private Systems systemName;
     private Integer templateId;
     private Integer productCode;
     private Integer smsCode;
+
+    @Override
+    public String toString() {
+        return "{" +
+                "uid='" + uid + '\'' +
+                ", operationUid='" + operationUid + '\'' +
+                ", systemTime='" + systemTime + '\'' +
+                ", communicationId=" + communicationId +
+                ", source='" + source + '\'' +
+                ", systemName='" + systemName + '\'' +
+                ", templateId=" + templateId +
+                ", productCode=" + productCode +
+                ", smsCode=" + smsCode +
+                '}';
+    }
 }
