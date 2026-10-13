@@ -17,6 +17,7 @@ import ru.trickluan.spring.lw2.service.ModifyResponseService;
 import ru.trickluan.spring.lw2.service.ValidationService;
 import ru.trickluan.spring.lw2.util.DateTimeUtil;
 
+import java.text.ParseException;
 import java.util.Date;
 
 @Slf4j
@@ -34,6 +35,13 @@ public class MyController {
 
     @PostMapping(value = "/feedback")
     public ResponseEntity<Response> feedback(@Valid @RequestBody Request request, BindingResult result) {
+        try {
+            log.info("Time difference: {} ms", System.currentTimeMillis() - DateTimeUtil.getCustomFormat().parse(
+                    request.getSystemTime()).getTime()
+            );
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         log.info("request: {}", request);
 
         Response response = Response.builder()
